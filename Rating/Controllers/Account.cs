@@ -56,6 +56,33 @@ namespace Rating.Controllers
             }
             return View(model);
         }
+
+        public IActionResult Register()
+        {
+            if (User.Identity.IsAuthenticated)
+                return RedirectToAction("Index","MainPage");
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Register(Register model)
+        {
+            if(ModelState.IsValid)
+            {
+                IdentityUser newUser = new IdentityUser{UserName = model.Name,Email = model.Email};
+                var result = await _userManager.CreateAsync(newUser, model.Password);
+                if (result.Succeeded)
+                {
+                    await _userManager.AddToRoleAsync(newUser, "User");
+                    await _db.SaveChangesAsync();
+                    await _signInManager.SignInAsync(newUser, false);
+                    return RedirectToAction("Index", "MainPage");
+                }
+                foreach (var error in result.Errors)
+                    ModelState.AddModelError(String.Empty, error.Description);
+            }
+            return View(model);
+        }
+
         
     }
 }
