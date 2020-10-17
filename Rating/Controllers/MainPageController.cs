@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Rating.Models;
 using Rating.Models.Data;
+using Rating.Services;
 
 namespace Rating.Controllers
 {
@@ -23,10 +24,13 @@ namespace Rating.Controllers
         }
 
         // GET
-        public async Task<IActionResult> Index()
-        {
-            List<Institution> institutions = await _db.Institutions.ToListAsync();
-            return View(institutions);
+        public async Task<IActionResult> Index(int page = 1)
+        { 
+            int pageSize = 5;
+            IEnumerable<Institution> institutions = _db.Institutions.Skip((page - 1) * pageSize).Take(pageSize);
+            PageInfo pageInfo = new PageInfo { PageNumber = page, PageSize = pageSize, TotalItems = _db.Institutions.Count()};
+            IndexViewModel ivm = new IndexViewModel { PageInfo = pageInfo, Institutions = institutions };
+            return View(ivm);
         }
     }
 }
