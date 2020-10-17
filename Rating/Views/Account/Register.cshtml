@@ -1,8 +1,52 @@
-﻿@model TModel
+﻿@model Rating.ViewModels.Register
+
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Регистрация";
     Layout = "_Layout";
 }
+<div class="login-block-register">
+<div class="col-md-9 block-register">
+    <form asp-action="Register" asp-controller="Account" method="post" id="signup">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="client_form">
+            
+            <div class="form-group form-group-btn-register" style="text-align: end;">
+                <button type="submit" class="btn register-btn">
+                    Зарегистрировать меня
+                </button>
+            </div>
 
-<h2>title</h2>
+        </div>
+    </form>
+</div>
+</div>
+
+
+
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+  
+    
+    <script >
+            $(document).ready(function() {
+
+               $('body').on('click', '.password-control', function(){
+                    if ($('#inputPassword').attr('type') === 'password'){
+                        $('.password-control').addClass('view');
+                        $('#inputPassword').attr('type', 'text');
+                        $('#inputPassword2').attr('type', 'text');
+                    } else {
+                        $('.password-control').removeClass('view');
+                        $('#inputPassword').attr('type', 'password');
+                        $('#inputPassword2').attr('type', 'password');
+                    }
+                    return false;
+                 });
+            });    
+    </script>
+}
