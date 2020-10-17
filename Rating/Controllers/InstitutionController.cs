@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -98,6 +99,11 @@ namespace Rating.Controllers
                 return PartialView("Partial/PartialBlockComment", feedback);
             }
             return Json(false);
+        }
+
+        public IActionResult Upload(IFormFile file)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

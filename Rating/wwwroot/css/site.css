@@ -1235,3 +1235,12 @@ body {
 .det-block2-box-img img{
   max-width: 100%;
 }
+.code-256{
+  border: 1px solid silver;
+  border-top: none;
+  padding: 0 10px 10px;
+  margin-bottom: 20px;
+}
+.code-256 p{
+  margin-bottom: 0;
+}

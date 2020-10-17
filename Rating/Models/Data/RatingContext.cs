@@ -24,7 +24,7 @@ namespace Rating.Models.Data
                         new Institution
                         {
                             Name = "BurgerKing",Description = "Приложение должно запуститься на компьютере проверяющего без дополнительной настройки компьютера (сверх той, что описана в README.md) и любого другого участия проверяющего (например, исправление багов и создание фикстур самостоятельно) направленного на починку программы;",
-                            Rating = 4, Author = "Admin", PhotoPath = "images/etc/def.jpg", UserId = "2c4849b1-e398-44dc-a55f-11340745632e", Id = i
+                            Rating = 4, Author = "Admin", PhotoPath = "images/etc/def.jpg", UserId = "2c4849b1-e398-44dc-a55f-11340745632e", Id = i,PhotoCount = 9
                         }
                     );
             }

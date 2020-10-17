@@ -59,6 +59,15 @@
             <div>
                 <button type="submit" class="btn btn-primary">Отправить</button>
             </div>
+        </form  >
+    </div>
+    <hr>
+    <hr>
+    <div class="det-block5">
+        <form method="POST" id="formx2" action="javascript:void(null);" onsubmit="call2()" enctype="multipart/form-data">
+            <h3>Загрузить новое фото галерею</h3>
+            <input type="file" name="file">
+            <button type="submit">Загрузить</button>
         </form>
     </div>
 </div>
@@ -70,6 +79,25 @@
     }
     
     <script>
+     function call2() {
+                  	  var model  = $('#formx2').serialize();
+                  	  console.log(model)
+                         $.ajax({
+                               url: '@Url.Action("Upload", "Institutions")',
+                               type: 'POST',
+                               data:  model,
+                               success: function(data) {
+                                   console.log(data)
+                                   if (data === false){
+                                       alert("Что-то пошло не так обратитесь к администрацию сайта!")
+                                   }
+                                   else{
+                                       $('#result-comment').append(data);
+                                   }
+                                   }
+                             })
+                          }
+                          
          function call() {
               	  var model  = $('#formx').serialize();
               	  console.log(model)

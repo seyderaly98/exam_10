@@ -21,6 +21,7 @@ namespace Rating.Models
         public string PhotoPath { get; set; }
         public string Author { get; set; }
         public string UserId { get; set; }
+        public int PhotoCount { get; set; }
 
         [NotMapped]
         [Required(ErrorMessage = "Это поле необходимо заполнить.")]
