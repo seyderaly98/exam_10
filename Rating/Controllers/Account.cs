@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Rating.Models.Data;
+using Rating.ViewModels;
 
 namespace Rating.Controllers
 {
@@ -40,14 +41,13 @@ namespace Rating.Controllers
             
             if (ModelState.IsValid)
             {
-                User user = await _db.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
+                IdentityUser user = await _db.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
                 if (user != null)
                 {
                    
-                    var result = await _signInManager.PasswordSignInAsync(user, model.Password);
+                    var result = await _signInManager.PasswordSignInAsync(user, model.Password,model.RememberMe,false);
                     if (result.Succeeded)
                     {
-                        
                         return RedirectToAction("Index", "MainPage");
                     }
 

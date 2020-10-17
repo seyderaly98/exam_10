@@ -1,0 +1,96 @@
+﻿@using Microsoft.Extensions.Options
+@model Rating.ViewModels.Login
+
+@{
+    ViewBag.Title = "Авторизация";
+    Layout = "_Layout";
+}
+
+ <div class="login-block">
+     <img src="~/images/Login/1.png">
+     <h1>Введите свои данные</h1>
+     <form asp-action="Login" asp-controller="Account" method="post">
+         <div asp-validation-summary="ModelOnly"></div>
+        
+         <div class="form-group">
+             <div class="input-group">
+                 <span class="input-group-addon"><i class="fa fa-user ti-user"></i></span>
+                 <input class="form-control" placeholder="Email" asp-for="Email">
+             </div>
+             <span asp-validation-for="Email"></span>
+         </div>
+         <hr class="hr-xs">
+         <div class="form-group">
+             <div class="input-group">
+                 <span class="input-group-addon"><i class="fa fa-lock ti-unlock"></i></span>
+                 <input id="inputPassword" class="form-control" placeholder="Пароль" asp-for="Password">
+                 <span class="input-group-addon">
+                     <a href="#" class="password-control"></a>
+                 </span>
+             </div>
+             <span asp-validation-for="Password"></span>
+         </div>
+         
+         <div class="form-group form-check">
+             <input type="checkbox" class="form-check-input" id="exampleCheck1" asp-for="RememberMe">
+             <label class="form-check-label" for="exampleCheck1">
+                 Запомнить меня
+             </label>
+         </div>
+
+         <button class="btn btn-primary btn-block" id="login-btn" type="submit">ВОЙТИ НА САЙТ</button>
+         <div class="login-footer">
+             <h6>или войдите с помощью</h6>
+             <ul class="social-icons">
+                 <li>
+                     <a class="facebook" href="#">
+                         <i class="fa fa-facebook"></i>
+                     </a>
+                 </li>
+                 <li>
+                     <a class="twitter" href="#">
+                         <i class="fa fa-twitter"></i>
+                     </a>
+                 </li>
+                 <li>
+                     <a class="linkedin" href="#">
+                         <i class="fa fa-linkedin"></i>
+                     </a>
+                 </li>
+             </ul>
+         </div>
+         <div class="form-group form-group-reset-password">
+             <a href="#">Забыли пароль?</a>
+         </div>
+     </form>
+ </div>
+
+ <div class="login-links">
+     <p class="text-center">Еще нету аккаунта? 
+         <a class="txt-brand" asp-action="Register" asp-controller="Account">
+             <font color=#29aafe>Регистрируйся</font>
+         </a></p>
+ </div>
+  
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    
+    <script>
+        $('body').on('click', '.password-control', function(){
+                if ($('#inputPassword').attr('type') === 'password'){
+                    $(this).addClass('view');
+                    $('#inputPassword').attr('type', 'text');
+                } else {
+                    $(this).removeClass('view');
+                    $('#inputPassword').attr('type', 'password');
+                }
+                return false;
+            });
+</script>
+  
+}
