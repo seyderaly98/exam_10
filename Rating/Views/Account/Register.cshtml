@@ -10,7 +10,9 @@
     <form asp-action="Register" asp-controller="Account" method="post" id="signup">
         <div asp-validation-summary="ModelOnly"></div>
         <div class="client_form">
-            
+            @{
+                await Html.RenderPartialAsync("Partial/PartialRegisterForm");
+            }
             <div class="form-group form-group-btn-register" style="text-align: end;">
                 <button type="submit" class="btn register-btn">
                     Зарегистрировать меня
