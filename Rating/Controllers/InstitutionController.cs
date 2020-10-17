@@ -60,5 +60,9 @@ namespace Rating.Controllers
             return View(model);
         }
         
+        public IActionResult Details(int institutionId)
+        {
+            return View();
+        }
     }
 }

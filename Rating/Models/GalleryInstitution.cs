@@ -8,7 +8,7 @@ namespace Rating.Models
     {
         public int Id { get; set; }
         public string Author { get; set; }
-        public DateTime CreateDate = DateTime.Now;
+        public DateTime CreateDate { get; } = DateTime.Now;
         public string PhotoPath { get; set; }
         public int InstitutionsId { get; set; }
         public string UserId { get; set; }

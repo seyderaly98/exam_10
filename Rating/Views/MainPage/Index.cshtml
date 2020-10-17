@@ -5,4 +5,24 @@
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<h2 style="padding-bottom: 50px">Все заведения</h2>
+<div class="container-places">
+    <div class="all-places">
+        @for (int i = 0; i < 6; i++)
+        {
+            <div class="box-plc">
+                <div class="box-img">
+                    <a asp-action="Details" asp-controller="Institutions" asp-route-institutionId="12">
+                    <img class="images-as" src="https://m.alterainvest.ru/upload/iblock/dbf/dbf39c49b4439321c6407664a4815a04.jpg" alt="">
+                    </a>
+                </div>
+                <div>
+                    <h5>Suken Flogan</h5>
+                    <p>55555</p>
+                    <p>комментарии</p>
+                    <p><span>20</span> фото</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>

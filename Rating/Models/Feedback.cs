@@ -11,7 +11,7 @@ namespace Rating.Models
         public string Author { get; set; }
         public string Description { get; set; }
         public int Estimation { get; set; }
-        public DateTime CreateDate { get; set; }
+        public DateTime CreateDate { get; } = DateTime.Now;
         public int InstitutionsId { get; set; }
         public string UserId { get; set; }
         

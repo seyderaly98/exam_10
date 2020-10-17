@@ -1199,3 +1199,18 @@ body {
 .primer-corusel{
   padding-bottom:30px;
 }
+/*exam 10_______________________________________________________________________________________________________________________________________*/
+.all-places{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.box-plc{
+  margin: 0 15px;
+}
+.all-places img{
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  
+}
