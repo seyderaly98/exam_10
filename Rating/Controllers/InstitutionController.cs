@@ -74,5 +74,30 @@ namespace Rating.Controllers
             }
             return NotFound();
         }
+        
+        
+        public async Task<IActionResult> Comment(int rating, string description, int id)
+        {
+            Institution institution = await _db.Institutions.FirstOrDefaultAsync(i => i.Id == id);
+            if (institution != null)
+            {
+                Feedback feedback = new Feedback {InstitutionsId = id, Description = description, Estimation = rating};
+                institution.Rating += feedback.Estimation; // Временно 
+                if (User.Identity.IsAuthenticated)
+                {
+                    var user = await _db.User.FirstOrDefaultAsync(u => u.Id == _userManager.GetUserId(User));
+                    feedback.Author = user.UserName;
+                    feedback.UserId = user.Id;
+                }
+                else feedback.Author = "Гость";
+
+                await _db.Feedbacks.AddAsync(feedback);
+                _db.Institutions.Update(institution);
+                await _db.SaveChangesAsync();
+                
+                return PartialView("Partial/PartialBlockComment", feedback);
+            }
+            return Json(false);
+        }
     }
 }

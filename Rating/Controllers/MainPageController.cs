@@ -24,7 +24,7 @@ namespace Rating.Controllers
         }
         
         // GET
-        public async Task<IActionResult> Index(int page = 1)
+        public IActionResult Index(int page = 1)
         { 
             int pageSize = 20;
             IEnumerable<Institution> institutions = _db.Institutions.Skip((page - 1) * pageSize).Take(pageSize);
