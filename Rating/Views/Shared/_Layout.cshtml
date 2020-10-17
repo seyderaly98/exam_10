@@ -37,6 +37,10 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li class="nav-item">
+                            <a class="link2" asp-action="Create" asp-controller="Institutions" >Добавить заведения</a>
+                        </li>
+                        <span class="space">/</span>
+                        <li class="nav-item">
                             <a class="link2" href="#">@name</a>
                         </li>
                         <span class="space">/</span>
