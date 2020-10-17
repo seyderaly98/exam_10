@@ -11,7 +11,7 @@ using Rating.ViewModels;
 
 namespace Rating.Controllers
 {
-    public class Account : Controller
+    public class AccountController : Controller
     {
         public UserManager<IdentityUser> _userManager { get; set; }
         public RoleManager<IdentityRole> _roleManager { get; set; }
@@ -19,7 +19,7 @@ namespace Rating.Controllers
         public RatingContext _db { get; set; }
         public IHostEnvironment _environment { get; set; }
 
-        public Account(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<IdentityUser> signInManager, RatingContext db, IHostEnvironment environment)
+        public AccountController(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<IdentityUser> signInManager, RatingContext db, IHostEnvironment environment)
         {
             _userManager = userManager;
             _roleManager = roleManager;

@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.IO;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
 namespace Rating.Models
@@ -13,6 +15,8 @@ namespace Rating.Models
         public string Author { get; set; }
         public string UserId { get; set; }
 
+        [NotMapped]
+        public IFormFile File { get; set; }
         [NotMapped]
         public IdentityUser User { get; set; }
         

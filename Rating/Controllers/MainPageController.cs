@@ -2,7 +2,7 @@
 
 namespace Rating.Controllers
 {
-    public class MainPage : Controller
+    public class MainPageController : Controller
     {
         // GET
         public IActionResult Index()

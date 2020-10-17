@@ -6,12 +6,12 @@ using Rating.Models.Data;
 
 namespace Rating.Controllers
 {
-    public class Validation : Controller
+    public class ValidationController : Controller
     { private RatingContext _db;
         private UserManager<IdentityUser> _userManager;
         private SignInManager<IdentityUser> _signInManager;
 
-        public Validation(RatingContext db, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public ValidationController(RatingContext db, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             _db = db;
             _userManager = userManager;
