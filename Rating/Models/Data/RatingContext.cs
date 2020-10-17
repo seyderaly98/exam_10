@@ -7,6 +7,8 @@ namespace Rating.Models.Data
     public class RatingContext : IdentityDbContext<IdentityUser>
     {
         public DbSet<IdentityUser> User { get; set; }
+        public DbSet<Institution> Institutions { get; set; }
+        public DbSet<Feedback> Feedbacks { get; set; }
         public RatingContext(DbContextOptions<RatingContext> options) : base(options) {}
     }
 }
