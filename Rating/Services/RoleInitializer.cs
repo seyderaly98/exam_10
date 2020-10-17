@@ -23,6 +23,7 @@ namespace Rating.Services
             {
                 IdentityUser admin = new IdentityUser
                 {
+                    Id = "2c4849b1-e398-44dc-a55f-11340745632e",
                     Email = adminEmail,
                     EmailConfirmed = true,
                     UserName = "Admin",
