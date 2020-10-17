@@ -16,8 +16,12 @@ namespace Rating.Models
         public string Name { get; set; }
         [Required(ErrorMessage = "Это поле необходимо заполнить.")]
         public string Description { get; set; }
-        
-        public double Rating { get; set; }
+        public int PeopleRated { get; set; } = 6; // Чтобы вычислить временный рейтинг
+        public int Estimation { get; set; } = 30; // Чтобы вычислить временный рейтинг
+
+        [NotMapped]
+        public double Rating => Estimation / PeopleRated;
+        public double Estation { get; set; }
         public string PhotoPath { get; set; }
         public string Author { get; set; }
         public string UserId { get; set; }

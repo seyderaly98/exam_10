@@ -83,7 +83,7 @@ namespace Rating.Controllers
             if (institution != null)
             {
                 Feedback feedback = new Feedback {InstitutionsId = id, Description = description, Estimation = rating};
-                institution.Rating += feedback.Estimation; // Временно 
+                institution.Estation += feedback.Estimation; // Временно 
                 if (User.Identity.IsAuthenticated)
                 {
                     var user = await _db.User.FirstOrDefaultAsync(u => u.Id == _userManager.GetUserId(User));
