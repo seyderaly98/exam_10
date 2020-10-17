@@ -1214,3 +1214,24 @@ body {
   min-height: 100%;
   
 }
+.det-block1{
+  display: grid;
+  grid-template-columns: 55% 40%;
+  justify-content: space-between;
+}
+.det-images{
+  max-width: 100%;
+
+}
+.det-block2-box-img{
+  max-width: 200px;
+  min-width: 200px;
+  max-height: 200px;
+  min-height: 200px;
+  
+
+
+}
+.det-block2-box-img img{
+  max-width: 100%;
+}

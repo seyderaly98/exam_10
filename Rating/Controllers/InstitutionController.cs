@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -60,9 +61,18 @@ namespace Rating.Controllers
             return View(model);
         }
         
-        public IActionResult Details(int institutionId)
+        public async Task<IActionResult> Details(int? institutionId)
         {
-            return View();
+            if (institutionId != null)
+            {
+                Institution institution = await _db.Institutions.FirstOrDefaultAsync(i => i.Id == institutionId);
+                if (institution != null)
+                {
+                    institution.Gallery = _db.Gallery.Where(g => g.InstitutionId == institution.Id).ToList();
+                    return View(institution);
+                }
+            }
+            return NotFound();
         }
     }
 }

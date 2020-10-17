@@ -24,12 +24,13 @@
                 </div>
             </div>
         }
-
+        
     </div>
 
 </div>
 
- @{
+
+@{
         int pageNumber = Model.PageInfo.PageNumber;
         int nextAndPrevious = Model.PageInfo.PageNumber;
         int totalPage = Model.PageInfo.TotalPages;
@@ -48,7 +49,7 @@
         }
     }
 
-<nav style="margin-top: 10px;" aria-label="Page navigation example">
+<nav  style="margin-top: 10px; text-align: center" aria-label="Page navigation example">
         <ul class="pagination">
             <li class="page-item">
                 @if (Model.PageInfo.PageNumber > 1)

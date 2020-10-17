@@ -22,11 +22,11 @@ namespace Rating.Controllers
             _roleManager = roleManager;
             _db = db;
         }
-
+        
         // GET
         public async Task<IActionResult> Index(int page = 1)
         { 
-            int pageSize = 5;
+            int pageSize = 20;
             IEnumerable<Institution> institutions = _db.Institutions.Skip((page - 1) * pageSize).Take(pageSize);
             PageInfo pageInfo = new PageInfo { PageNumber = page, PageSize = pageSize, TotalItems = _db.Institutions.Count()};
             IndexViewModel ivm = new IndexViewModel { PageInfo = pageInfo, Institutions = institutions };

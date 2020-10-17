@@ -1,8 +1,60 @@
 ﻿@model Institution
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = Model.Name;
     Layout = "_Layout";
 }
+<div class="detail-container-in">
+    <div class="det-block1">
+        <div class="box1">
+            <h3>@Model.Name</h3>
+            <div>
+                <p>@Model.Description</p>
+            </div>
+        </div>
+        <div class="box2">
+            <div class="det-img">
+                <img class="det-images" src="~/@Model.PhotoPath" alt="">
+            </div>
+        </div>
+    </div>
+    <h3>Галерея</h3>
+    <hr>
+    <div class="det-block2">
+        @foreach (var gallery in Model.Gallery)
+        {
+            <div style="display: inline-block" class="det-block2-box-img">
+                <img src="~/@gallery.PhotoPath" alt="">
+            </div>
+        }
+        
+    </div >
+    <hr>
+    <div>
+        <p>Рейтинг <span>@Model.Rating</span></p>
+    </div>
+    <hr>
+    <div class="det-block4">
+        <form action="">
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Оставить отзывы</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Оценка</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Отправить</button>
+            </div>
+        </form>
+    </div>
+</div>
 
-<h2>title</h2>
+

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.IO;
 using Microsoft.AspNetCore.Http;
@@ -26,6 +27,9 @@ namespace Rating.Models
         public IFormFile File { get; set; }
         [NotMapped]
         public IdentityUser User { get; set; }
+
+        [NotMapped]
+        public List<GalleryInstitution> Gallery { get; set; }
         
     }
 }
