@@ -23,6 +23,11 @@ namespace Rating.Controllers
         {
             return !await _db.Users.AnyAsync(u => u.Email == email);
         }
+        
+        public async Task<bool> CheckInstitutionName(string name)
+        {
+            return !await _db.Institutions.AnyAsync(u => u.Name.ToLower() == name.ToLower());
+        }
        
     }
 }

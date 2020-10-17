@@ -4,22 +4,29 @@
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
+           
 
 <div class="login-block-register">
 <div class="col-md-9 block-register">
-    <form asp-action="Register" asp-controller="Account" method="post" id="signup">
+    <form asp-action="Create" asp-controller="Institutions" method="post" enctype="multipart/form-data">
         <div asp-validation-summary="ModelOnly"></div>
         <div class="client_form">
+             <h2 style="padding-bottom: 20px">Добавить заведения для отзыва </h2>
             @{
                 await Html.RenderPartialAsync("Partial/PartialCrateForm");
             }
             <div class="form-group form-group-btn-register" style="text-align: end;">
                 <button type="submit" class="btn register-btn">
-                    Добавить заведения 
+                    Добавить заведения
                 </button>
             </div>
-
         </div>
     </form>
 </div>
 </div>
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
